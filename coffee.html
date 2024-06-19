@@ -1,0 +1,528 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Coffee Shop</title>
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="fonts/style.css">
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* CSS Reset */
+        * body {
+            background-color: #f2f2f2; /* Серый фон */
+            margin: 0; /* Убираем отступы по умолчанию */
+            padding: 0; /* Убираем внутренние отступы по умолчанию */
+        }
+
+        /* Custom Fonts */
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: #333;
+                    transition: color 0.3s ease;
+                }
+
+                    nav ul li a:hover {
+                        color: #c58940;
+                    }
+
+        /* Main Content Styles */
+        main {
+            padding: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h1, h2, h3 {
+            color: #c58940;
+            margin-bottom: 20px;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+            .hero-content h1 {
+                font-size: 48px;
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                margin-bottom: 30px;
+            }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+            .hero-image img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        /* Featured Products Styles */
+        .featured-products {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .featured-products-content {
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .product-card {
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .product-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-content {
+            margin-top: 20px;
+        }
+
+            .product-content h3 {
+                margin-bottom: 10px;
+            }
+
+            .product-content p {
+                margin-bottom: 20px;
+            }
+
+        .btn {
+            display: inline-block;
+            background-color: #c58940;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #a87232;
+            }
+
+
+        /* Carousel Styles */
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .swiper-slide blockquote {
+                font-size: 24px;
+                font-style: italic;
+                color: #666;
+            }
+
+            .swiper-slide cite {
+                display: block;
+                margin-top: 10px;
+                font-size: 18px;
+                font-style: normal;
+                color: #c58940;
+            }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+
+                nav ul li {
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+
+            main {
+                padding: 40px;
+            }
+
+            .hero {
+                background-image: url("https://i.imgur.com/VRjXder.jpeg");
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: white;
+            }
+
+            .hero-content {
+                max-width: 800px;
+                padding: 40px;
+            }
+
+                .hero-content h1 {
+                    font-size: 36px;
+                }
+
+            .featured-products {
+                grid-template-columns: 1fr;
+            }
+
+            .swiper-container {
+                height: 300px;
+            }
+
+            .swiper-slide blockquote {
+                font-size: 18px;
+            }
+
+            .swiper-slide cite {
+                font-size: 16px;
+            }
+        }
+
+        /* Отзывы */
+        .testimonials {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-slider {
+            position: relative;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            height: 100%;
+        }
+
+            .testimonial-card blockquote {
+                font-size: 18px;
+                font-style: italic;
+                margin: 0 0 20px;
+            }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .testimonial-author cite {
+                font-size: 16px;
+                font-weight: bold;
+                color: #666;
+                margin-bottom: 10px;
+            }
+
+        .testimonial-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .swiper-pagination {
+            margin-top: 20px;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #ccc;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #333;
+        }
+
+        /* Заголовок название и лого */
+        header {
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+            nav a:hover {
+                color: #fff;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://i.imgur.com/NYjYDZ6.png" alt="Coffee Fast" class="logo-image">
+                <h1>Coffee Fast</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Магазин</a></li>
+                    <li><a href="#">Информация</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <section class="hero" style="background-image: url('https://i.imgur.com/VRjXder.jpeg'); background-size: cover; background-position: center; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: white;">
+            <div class="hero-content">
+                <h1> Откройте для себя лучшие сорта кофе в зернах </h1>
+                <p>Ознакомьтесь с нашим широким ассортиментом высококачественных свежеобжаренных кофейных зерен для приготовления идеальной чашки.</p>
+                <a href="#" class="btn">Приобрести сейчас</a>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="featured-products-content">
+                <h2>Рекомендуемые продукты</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/AnRORUc.jpeg" alt="Кофейные зерна темной обжарки">
+                    </div>
+                    <div class="product-content">
+                        <h3>Кофейные зерна темной обжарки</h3>
+                        <p>Насладитесь богатым, насыщенным вкусом нашего высококачественного кофе в зернах темной обжарки.</p>
+                        <a href="#" class="btn">Заказать</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/qkw3dZE.jpeg" alt="Кофейные зерна легкой обжарки">
+                    </div>
+                    <div class="product-content">
+                        <h3>Кофейные зерна легкой обжарки</h3>
+                        <p>Откройте для себя яркий, нежный и высокий вкус наших кофейных зерен легкой обжарки.</p>
+                        <a href="#" class="btn">Заказать</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.imgur.com/5jXGlGJ.jpeg" alt="Кофейные зерна средней прожарки">
+                    </div>
+                    <div class="product-content">
+                        <h3>Кофейные зерна средней прожарки</h3>
+                        <p>Насладитесь сбалансированным, средне-насыщенным вкусом наших кофейных зерен премиум-класса.</p>
+                        <a href="#" class="btn">Заказать</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="testimonials-content">
+                <h2 class="section-title">Что говорят наши клиенты?</h2>
+                <div class="testimonial-slider">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <blockquote>
+                                        <p>Этот интернет-магазин - настоящая находка для любителей качественного кофе. Рекомендую всем!</p>
+                                    </blockquote>
+                                    <div class="testimonial-author">
+                                        <cite>- Смирнов Алексей</cite>
+                                        <img src="https://i.imgur.com/wCEq5sV.png" alt="John Doe" class="testimonial-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <blockquote>
+                                        <p>Я в восторге от кофе из этого магазина. Отличное обслуживание и быстрая доставка - еще один плюс!</p>
+                                    </blockquote>
+                                    <div class="testimonial-author">
+                                        <cite>- Соколов Дмитрий</cite>
+                                        <img src="https://i.imgur.com/OyAWoFr.png" alt="Jane Smith" class="testimonial-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <blockquote>
+                                        <p>Я перепробовал много сортов кофе, но этот магазин предлагает действительно уникальный и вкусный продукт.</p>
+                                    </blockquote>
+                                    <div class="testimonial-author">
+                                        <cite>- Корезин Александр</cite>
+                                        <img src="https://i.imgur.com/hEHnYHk.png" alt="Michael Johnson" class="testimonial-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Swiper.js JavaScript -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+</body>
+</html>
